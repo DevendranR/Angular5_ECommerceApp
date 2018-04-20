@@ -1,0 +1,30 @@
+{
+"products":
+[{
+"pid":"product1",
+"pname":"JSWCement",
+"price":800,
+"ptype":"cement",
+"pdescription":"This cement is of bestQuality",
+"img":"assets/img/jswcement.jpg"
+},
+{
+"pid":"product2",
+"pname":"JSWSteel",
+"price":1800,
+"ptype":"steel",
+"pdescription":"This steel is of bestQuality",
+"pdiameter":"7mm",
+"img":"assets/img/jswsteel.jpg"
+},
+{
+"pid":"product3",
+"pname":"JSWSteel",
+"price":1300,
+"ptype":"steel",
+"pdescription":"This steel is of bestQuality",
+"pdiameter":"9mm",
+"img":"assets/img/jswsteel.jpg"
+}]
+
+}

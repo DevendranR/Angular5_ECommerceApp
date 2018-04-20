@@ -1,0 +1,39 @@
+.footer,.footer a{
+	color:#fff!important;
+	background-color:#000!important;
+}
+.redBody{
+	color:red;
+}
+.navbar{
+	margin-bottom:0;
+}
+.emptyCart{
+	font-size: 160px !important;
+}
+.fa {
+    padding: 16px;
+    font-size: 26px;
+    width: 64px;
+    margin: 5px 2px;
+}
+.fa-shopping-cart {
+    padding: 0;
+    font-size: 19px;
+    width: 20px;
+    margin: 0;
+}
+
+
+
+.row.content{
+	margin-top: 56px;
+}
+.bg-green{
+	background-color: forestgreen;
+}
+
+  .carousel-inner img {
+      width: auto;
+      height: auto;
+  }

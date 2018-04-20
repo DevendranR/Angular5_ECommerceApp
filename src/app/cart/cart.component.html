@@ -1,0 +1,124 @@
+			<div id="maincart" class=" col-lg-12" align="center">
+			
+		<ngx-smart-modal #myModal identifier="myModal">
+		  <div *ngIf="myModal.hasData()">
+			<h4 style = "color:darkblue">Delete</h4>
+			<p>Are you sure you want to delete the below product</p>
+			<table class="table text-center">
+				<thead>
+					<tr class="success">
+						<td>Name</td>
+						<td>Type</td>
+						<td>Quantity</td>
+						<td>Total Price</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>{{myModal.getData().pname}}</td>
+						<td>{{myModal.getData().ptype}}</td>
+						<td>{{myModal.getData().quantity}}</td>
+						<td>Rs.{{myModal.getData().price * myModal.getData().quantity}}</td>
+					</tr>
+				</tbody>
+			</table>
+		  </div>
+		  <button (click)="myModal.close();myModal.removeData();" class="btn btn-danger">No</button>
+		   <button (click)="removeFromCart(myModal.getData());myModal.close();myModal.removeData();" class="btn btn-primary">Yes</button>
+		</ngx-smart-modal>
+		
+		<ngx-smart-modal #contactModal identifier="contactModal">
+		  <div *ngIf="contactModal.hasData()">
+			<h4 style = "color:darkblue">Details please...</h4>
+			<p>Please enter the below details to place order</p>
+			    <form (ngSubmit)="placeOrder()" #contactForm="ngForm">
+	
+			  <div class="form-group">
+				<label for="name">Name</label>
+				<input type="text" class="form-control" id="name"
+					   required
+					   [(ngModel)]="newContact.name" name="name"
+					   #name="ngModel">
+				<div [hidden]="name.valid || name.pristine"
+					 class="alert alert-danger">
+				  Name is required
+				</div>
+			  </div>
+
+			  <div class="form-group">
+				<label for="phone">Phone</label>
+				<input type="text" class="form-control" id="phone"
+					   required
+					   [(ngModel)]="newContact.phone" name="phone"
+					   #phone="ngModel">
+				<div [hidden]="phone.valid || phone.pristine"
+					 class="alert alert-danger">
+				  Phone is required
+				</div>
+			  </div>
+
+				<div class="form-group">
+				<label for="email">Email</label>
+				<input type="text" class="form-control" id="email"
+					   required
+					   [(ngModel)]="newContact.email" name="email"
+					   #email="ngModel">
+				<div [hidden]="email.valid || email.pristine"
+					 class="alert alert-danger">
+				  Email is required
+				</div>
+			  </div>
+		
+      <button type="submit" class="btn btn-primary" (click) = "contactModal.close();"[disabled]="!contactForm.form.valid">Place Order</button>
+      <button type="button" class="btn btn-default" (click)="contactForm.reset()">Reset</button>
+
+
+    </form>
+
+		  </div>
+		  		</ngx-smart-modal>
+			
+					<div *ngIf="!cartItems || cartItems.length<1">
+						<br><br><br><h3>Cart is Empty! Fill it and Enjoy !!</h3>
+						<div><i class="emptyCart fa fa-shopping-cart" aria-hidden="true"></i></div>
+					</div>
+					<div *ngIf="cartItems&&cartItems.length>0">
+						<h3>Cart Details</h3>
+
+							<table class="table text-center">
+							  <thead>
+									<tr class="success">
+										<th></th>
+										<th>Product Name</th>
+										<th>Product Type</th>
+										<th>Quantity</th>
+										<th>Price Details</th>
+										<th>Price</th>
+										<th>Specification</th>
+										<th>Delete</th>
+									</tr>
+							</thead>
+							<tbody>
+									<tr *ngFor="let item of cartItems">
+									
+										<td><img class="cartlogo img-thumbnail" src={{item.img}}></td>
+										<td>{{item.pname}}</td>
+										<td>{{item.ptype}}</td>
+										<td class="tableQuantity">
+										<input type="number" class="form-control" id="quantity" required min="1" 
+										[(ngModel)]="item.quantity" name="quantity" #quantity="ngModel">
+										
+										</td>
+										<td>{{item.price}} x {{item.quantity}}</td>
+										<td>Rs.{{item.price * item.quantity}}</td>
+										<td>{{item.pdiameter}}</td>
+										<td><a class="text-white" (click)="deleteConfirm(item);"><i class="deleteico fa fa-trash" aria-hidden="true"></i></a></td>										
+									</tr>
+								</tbody>
+							</table>
+							<button type="button" id="orderBtn" class="btn btn-primary" (click)="validateContactAndPlaceOrder()">Place Order</button>
+			
+						</div>
+							
+
+</div>

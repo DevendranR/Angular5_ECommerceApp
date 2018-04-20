@@ -1,0 +1,53 @@
+tr.success {
+    background-color: darkseagreen;
+}
+#cart{
+	text-align:center
+}
+.cartlogo{
+	max-width:120px;
+	height:auto;
+}
+
+.emptyCart{
+	font-size: 160px !important;
+	margin-left: -12% !important;
+	color:beige;
+}
+.fa {
+    padding: 16px;
+    font-size: 26px;
+    width: 64px;
+    margin: 5px 2px;
+}
+.fa-shopping-cart {
+    padding: 0;
+    font-size: 19px;
+    width: 20px;
+    margin: 0;
+}
+.deleteico{
+	color:darkgreen;
+	padding:0;
+	font-size:20px;
+	width:0;
+	margin:0;
+}
+.tableQuantity{
+	width:9%;
+}
+  .no-style .ng-valid {
+  border-left: 1px  solid #CCC
+}
+
+  .no-style .ng-invalid {
+  border-left: 1px  solid #CCC
+}
+
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; /* red */
+}
